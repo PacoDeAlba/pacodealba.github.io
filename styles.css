@@ -207,3 +207,26 @@ h6 {
         padding: 0.5rem;
     }
 }
+
+
+/* Media Queries */
+
+@media (max-width: 480px) {
+    .order-item {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .order-item {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .order-item {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+}

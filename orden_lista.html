@@ -7,6 +7,42 @@
     <title>Orden Lista</title>
     <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="styles.css">
+
+    <script>
+        const detectDevice = () => {
+            const userAgent = navigator.userAgent;
+
+            if (/mobile/i.test(userAgent)) {
+                return "Mobile";
+            } else if (/tablet/i.test(userAgent)) {
+                return "Tablet";
+            } else if (/SmartTV/i.test(userAgent)) {
+                return "Smart TV";
+            } else {
+                return "Desktop";
+            }
+        };
+
+        const adjustLayout = () => {
+            const device = detectDevice();
+
+            console.log(`Dispositivo detectado: ${device}`);
+
+            if (device === "Mobile") {
+                document.body.style.padding = "1rem";
+                document.querySelector('h1').style.fontSize = "1.5rem";
+            } else if (device === "Tablet") {
+                document.body.style.padding = "2rem";
+            } else if (device === "Smart TV") {
+                document.body.style.fontSize = "2rem";
+            } else {
+                document.body.style.padding = "2rem";
+            }
+        };
+
+        window.addEventListener("load", adjustLayout);
+    </script>
+
 </head>
 
 <body>
