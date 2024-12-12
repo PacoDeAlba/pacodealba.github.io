@@ -21,7 +21,6 @@ h1 {
 
 .logo {
     width: 1px;
-    /* Tamaño ajustable del logo */
 }
 
 
@@ -108,13 +107,13 @@ button:hover {
 h5 {
     margin-top: 2rem;
     text-align: center;
-    font-size: 1.5rem
+    font-size: 1.5rem;
 }
 
 h6 {
     margin-top: 2rem;
     text-align: center;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 
@@ -138,15 +137,12 @@ h6 {
     bottom: 10px;
     left: 10px;
     width: 150px;
-    /* Tamaño ajustable de la imagen */
     opacity: 0.8;
-    /* Transparencia para que no distraiga */
     transition: opacity 0.3s ease;
 }
 
 .bottom-right-image:hover {
     opacity: 1;
-    /* Imagen completamente visible al pasar el ratón */
 }
 
 
@@ -173,12 +169,10 @@ h6 {
     }
     header {
         flex-direction: column;
-        /* Cambia el logo y título a un formato vertical */
         text-align: center;
     }
     .logo {
         width: 100px;
-        /* Ajusta el tamaño del logo en pantallas pequeñas */
         margin-bottom: 10px;
     }
     h1 {
@@ -186,37 +180,29 @@ h6 {
     }
     .form-container {
         flex-direction: column;
-        /* Coloca los inputs y botón uno debajo del otro */
         gap: 0.5rem;
     }
     input,
     button {
-        width: 100%;
-        /* Los inputs y botones ocuparán todo el ancho del contenedor */
+        width: 50%;
         font-size: 1rem;
     }
     .order-list {
         width: 100%;
-        /* Asegúrate de que la lista ocupe todo el ancho en móviles */
     }
     .order-item {
         font-size: 1rem;
-        /* Ajusta el tamaño del texto de las órdenes */
         flex-direction: column;
-        /* Cambia el diseño a formato vertical */
         align-items: flex-start;
     }
     .bottom-right-image {
         width: 100px;
-        /* Reduce el tamaño de la imagen decorativa */
     }
     .nav-link a {
         font-size: 1rem;
-        /* Ajusta el tamaño del enlace de navegación */
     }
     .controls button {
         font-size: 1rem;
-        /* Botones más pequeños */
         padding: 0.5rem;
     }
 }
