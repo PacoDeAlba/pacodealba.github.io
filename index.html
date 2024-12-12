@@ -11,14 +11,12 @@
 
 <body>
 
-    <!-- Encabezado principal -->
     <header>
-        <img src="images/logo en negro.jpg" alt="Logo" width="200">
+        <img src="images/logo en negro.jpg" alt="" width="200">
         <h1>Ingresa los datos del cliente</h1>
     </header>
 
-    <!-- Imagen de pizza en la esquina inferior derecha -->
-    <img src="images/Pizza peperoni 1-4.png" alt="Pizza" class="img-bottom-right" style="
+    <img src="images/Pizza peperoni 1-4.png" alt="Imagen de ejemplo" style="
             position: fixed; 
             bottom: 10px; 
             right: 10px; 
@@ -27,7 +25,7 @@
             z-index: 100;
         ">
 
-    <!-- Formulario central para ingresar datos del cliente -->
+    <!-- Formulario para ingresar folio y nombre del cliente -->
     <div class="form-container">
         <input type="text" id="folio" placeholder="Folio">
         <input type="text" id="nombre" placeholder="Nombre del cliente">
@@ -39,16 +37,96 @@
         <h2>Órdenes Registradas</h2>
     </div>
 
-    <!-- Controles para eliminar órdenes -->
     <div class="controls">
         <button id="deleteSelectedBtn">Eliminar Seleccionados</button>
         <button id="deleteAllBtn">Eliminar Toda la Lista</button>
     </div>
 
-    <!-- Enlace para ir a la página de "Orden Lista" -->
     <div class="nav-link">
         <a href="orden_lista.html">Ver Lista de Órdenes</a>
     </div>
+
+    <script>
+        const addOrderBtn = document.getElementById('addOrderBtn');
+        const orderList = document.getElementById('orderList');
+        const folioInput = document.getElementById('folio');
+        const nombreInput = document.getElementById('nombre');
+        const deleteSelectedBtn = document.getElementById('deleteSelectedBtn');
+        const deleteAllBtn = document.getElementById('deleteAllBtn');
+
+        // Agregar una nueva orden al almacenamiento local
+        addOrderBtn.addEventListener('click', () => {
+            const folio = folioInput.value;
+            const nombre = nombreInput.value;
+
+            if (folio && nombre) {
+                const order = {
+                    folio,
+                    nombre,
+                    checked: false
+                };
+                let orders = JSON.parse(localStorage.getItem('orders')) || [];
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+
+                folioInput.value = '';
+                nombreInput.value = '';
+
+                renderOrders();
+            }
+        });
+
+        // Renderizar las órdenes desde el almacenamiento local
+        const renderOrders = () => {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orderList.innerHTML = '';
+            orders.forEach((order, index) => {
+                const orderItem = document.createElement('div');
+                orderItem.classList.add('order-item');
+
+                // Casilla de verificación
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = order.checked;
+                checkbox.addEventListener('change', () => {
+                    order.checked = checkbox.checked;
+                    updateOrder(index, order);
+                });
+
+                // Texto con el folio y nombre del cliente
+                const text = document.createElement('span');
+                text.textContent = `Folio: ${order.folio}, Cliente: ${order.nombre}`;
+
+                orderItem.appendChild(checkbox);
+                orderItem.appendChild(text);
+                orderList.appendChild(orderItem);
+            });
+        };
+
+        // Actualizar la orden en el almacenamiento local
+        const updateOrder = (index, updatedOrder) => {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orders[index] = updatedOrder;
+            localStorage.setItem('orders', JSON.stringify(orders));
+        };
+
+        // Eliminar las órdenes seleccionadas
+        deleteSelectedBtn.addEventListener('click', () => {
+            let orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orders = orders.filter(order => !order.checked);
+            localStorage.setItem('orders', JSON.stringify(orders));
+            renderOrders();
+        });
+
+        // Eliminar todas las órdenes
+        deleteAllBtn.addEventListener('click', () => {
+            localStorage.removeItem('orders');
+            renderOrders();
+        });
+
+        // Renderizar las órdenes al cargar la página
+        renderOrders();
+    </script>
 
 </body>
 
