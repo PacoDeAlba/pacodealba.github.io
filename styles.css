@@ -1,0 +1,222 @@
+/* Estilos generales */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #fcfbfb;
+}
+
+.logo {
+    width: 1px;
+    /* Tamaño ajustable del logo */
+}
+
+
+/* Estilos para el formulario */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+button {
+    padding: 0.7rem 10rem;
+    font-size: 1.5rem;
+    background-color: #7e0303fa;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #7e0303fa;
+}
+
+
+/* Estilo para la lista de órdenes */
+
+.order-list {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.order-item {
+    padding: 0.8rem;
+    background-color: #b10e0e;
+    margin-bottom: 0.5rem;
+    border: 1px solid #fdfdfd;
+    border-radius: 5px;
+    color: #ffffff;
+    animation: fadeIn 1s ease;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item input {
+    margin-right: 15px;
+}
+
+
+/* Estilo del enlace de navegación */
+
+.nav-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.nav-link a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-link a:hover {
+    color: #f11313;
+}
+
+h5 {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.5rem
+}
+
+h6 {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1rem
+}
+
+
+/* Estilo para los controles de borrado */
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5rem;
+}
+
+.controls button {
+    padding: 1rem 5rem;
+}
+
+
+/* Imagen en la esquina inferior derecha */
+
+.bottom-right-image {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 150px;
+    /* Tamaño ajustable de la imagen */
+    opacity: 0.8;
+    /* Transparencia para que no distraiga */
+    transition: opacity 0.3s ease;
+}
+
+.bottom-right-image:hover {
+    opacity: 1;
+    /* Imagen completamente visible al pasar el ratón */
+}
+
+
+/* Animaciones */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(8);
+    }
+}
+
+
+/* Estilo general para dispositivos con un ancho máximo de 768px */
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    header {
+        flex-direction: column;
+        /* Cambia el logo y título a un formato vertical */
+        text-align: center;
+    }
+    .logo {
+        width: 100px;
+        /* Ajusta el tamaño del logo en pantallas pequeñas */
+        margin-bottom: 10px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .form-container {
+        flex-direction: column;
+        /* Coloca los inputs y botón uno debajo del otro */
+        gap: 0.5rem;
+    }
+    input,
+    button {
+        width: 100%;
+        /* Los inputs y botones ocuparán todo el ancho del contenedor */
+        font-size: 1rem;
+    }
+    .order-list {
+        width: 100%;
+        /* Asegúrate de que la lista ocupe todo el ancho en móviles */
+    }
+    .order-item {
+        font-size: 1rem;
+        /* Ajusta el tamaño del texto de las órdenes */
+        flex-direction: column;
+        /* Cambia el diseño a formato vertical */
+        align-items: flex-start;
+    }
+    .bottom-right-image {
+        width: 100px;
+        /* Reduce el tamaño de la imagen decorativa */
+    }
+    .nav-link a {
+        font-size: 1rem;
+        /* Ajusta el tamaño del enlace de navegación */
+    }
+    .controls button {
+        font-size: 1rem;
+        /* Botones más pequeños */
+        padding: 0.5rem;
+    }
+}
