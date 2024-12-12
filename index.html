@@ -4,58 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Amaretto's</title>
+    <title>Gestión de Órdenes</title>
+    <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- Imagen en la esquina superior izquierda -->
-    <img src="images/logo en negro.jpg" class="img-top-left" alt="Logo">
-    <!-- Texto H1 en la esquina superior derecha -->
-    <h1 class="title-top-right">Órdenes Listas</h1>
+    <!-- Encabezado principal -->
+    <header>
+        <img src="images/logo en negro.jpg" alt="Logo" width="200">
+        <h1>Ingresa los datos del cliente</h1>
+    </header>
 
-    <div class="container">
-        <!-- Entrada para el folio -->
-        <label for="folio">Folio</label>
-        <input type="number" id="folio" name="folio" placeholder="Ingresa el folio" required>
+    <!-- Imagen de pizza en la esquina inferior derecha -->
+    <img src="images/Pizza peperoni 1-4.png" alt="Pizza" class="img-bottom-right" style="
+            position: fixed; 
+            bottom: 10px; 
+            right: 10px; 
+            width: 200px; 
+            height: auto; 
+            z-index: 100;
+        ">
 
-        <!-- Entrada para el cliente -->
-        <label for="cliente">Cliente</label>
-        <input type="text" id="cliente" name="cliente" placeholder="Ingresa el nombre del cliente" required>
-
-        <!-- Botón de envío -->
-        <button onclick="agregarOrden()">Agregar Orden</button>
-
-        <button onclick="window.location.href='ordenes.html'">Ver Lista de Órdenes</button>
+    <!-- Formulario central para ingresar datos del cliente -->
+    <div class="form-container">
+        <input type="text" id="folio" placeholder="Folio">
+        <input type="text" id="nombre" placeholder="Nombre del cliente">
+        <button id="addOrderBtn">Agregar Orden</button>
     </div>
 
-    <!-- Imagen en la esquina inferior derecha -->
-    <img src="images/Pizza peperoni 1-4.png" class="img-bottom-right" alt="Pizza">
+    <!-- Lista de órdenes -->
+    <div class="order-list" id="orderList">
+        <h2>Órdenes Registradas</h2>
+    </div>
 
-    <script>
-        const ordenes = [];
+    <!-- Controles para eliminar órdenes -->
+    <div class="controls">
+        <button id="deleteSelectedBtn">Eliminar Seleccionados</button>
+        <button id="deleteAllBtn">Eliminar Toda la Lista</button>
+    </div>
 
-        function agregarOrden() {
-            const folio = document.getElementById('folio').value;
-            const cliente = document.getElementById('cliente').value;
-
-            if (folio && cliente) {
-                ordenes.push({
-                    folio,
-                    cliente
-                });
-                alert('Orden agregada correctamente');
-
-                document.getElementById('folio').value = '';
-                document.getElementById('cliente').value = '';
-            }
-        }
-
-        window.addEventListener('beforeunload', function() {
-            localStorage.setItem('ordenes', JSON.stringify(ordenes));
-        });
-    </script>
+    <!-- Enlace para ir a la página de "Orden Lista" -->
+    <div class="nav-link">
+        <a href="orden_lista.html">Ver Lista de Órdenes</a>
+    </div>
 
 </body>
 

@@ -5,53 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Órdenes Listas</title>
+    <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- Imagen en la esquina superior izquierda -->
-    <img src="images/logo en negro.jpg" class="img-top-left" alt="Logo">
-    <!-- Texto H1 en la esquina superior derecha -->
-    <h1 class="title-orders">Órdenes Listas</h1>
+    <!-- Logo en la esquina superior derecha -->
+    <img src="images/logo en negro.jpg" alt="Logo Amareto's" class="logo">
 
-    <div class="orders-container">
-        <table id="tablaOrdenes">
-            <thead>
-                <tr>
-                    <th>Folio</th>
-                    <th>Cliente</th>
-                </tr>
-            </thead>
-            <tbody id="tbodyOrdenes">
-                <!-- La lista de órdenes se añadirá dinámicamente -->
-            </tbody>
-        </table>
+    <h1>Órdenes Listas</h1>
 
-        <button class="back-button" onclick="window.location.href='index.html'">Regresar</button>
+    <h2>Si ves tu nombre y folio aquí, acércate al mostrador. ¡Tu pedido ya está listo!</h2>
+
+    <!-- Lista de órdenes -->
+    <div class="order-list" id="orderList">
+        <!-- Contenedor de órdenes -->
+        <div class="orders">
+            <!-- Se mostrarán las órdenes aquí -->
+            <div class="order-item">
+                <p><strong>Folio:</strong> 12345</p>
+                <p><strong>Cliente:</strong> Juan Pérez</p>
+            </div>
+
+            <div class="order-item">
+                <p><strong>Folio:</strong> 67890</p>
+                <p><strong>Cliente:</strong> Ana Torres</p>
+            </div>
+        </div>
     </div>
 
-    <img src="images/Pizza peperoni 1-4.png" class="img-bottom-right" alt="Pizza">
+    <!-- Imagen decorativa en la esquina inferior derecha -->
+    <img src="images/Pizza peperoni 1-4.png" alt="Pizza" class="img-bottom-right" style="
+            position: fixed; 
+            bottom: 10px; 
+            right: 10px; 
+            width: 300px; 
+            height: auto; 
+            z-index: 100;
+        ">
 
-    <script>
-        const ordenes = JSON.parse(localStorage.getItem('ordenes')) || [];
+    <!-- Enlace para regresar a la página principal -->
+    <div class="nav-link">
+        <a href="index.html">Volver al Inicio</a>
+    </div>
 
-        function mostrarOrdenes() {
-            const tbody = document.getElementById('tbodyOrdenes');
-            tbody.innerHTML = '';
-
-            ordenes.forEach(orden => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${orden.folio}</td>
-                    <td>${orden.cliente}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        mostrarOrdenes();
-    </script>
+    <h5>¡Gracias por su preferencia!</h5>
+    <h6>Amareto's Pizza - Siempre recién hechas</h6>
 
 </body>
 
