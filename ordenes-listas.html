@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes Listas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Imagen en la esquina superior izquierda -->
+    <img src="images/logo en negro.jpg" class="img-top-left" alt="Logo">
+    <!-- Texto H1 en la esquina superior derecha -->
+    <h1 class="title-orders">Órdenes Listas</h1>
+
+    <div class="orders-container">
+        <table id="tablaOrdenes">
+            <thead>
+                <tr>
+                    <th>Folio</th>
+                    <th>Cliente</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyOrdenes">
+                <!-- La lista de órdenes se añadirá dinámicamente -->
+            </tbody>
+        </table>
+
+        <button class="back-button" onclick="window.location.href='index.html'">Regresar</button>
+    </div>
+
+    <img src="images/Pizza peperoni 1-4.png" class="img-bottom-right" alt="Pizza">
+
+    <script>
+        const ordenes = JSON.parse(localStorage.getItem('ordenes')) || [];
+
+        function mostrarOrdenes() {
+            const tbody = document.getElementById('tbodyOrdenes');
+            tbody.innerHTML = '';
+
+            ordenes.forEach(orden => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${orden.folio}</td>
+                    <td>${orden.cliente}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        mostrarOrdenes();
+    </script>
+
+</body>
+
+</html>

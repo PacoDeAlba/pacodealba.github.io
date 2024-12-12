@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Inicio - Amaretto's</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <h2>Formulario de Información</h2>
+    <!-- Imagen en la esquina superior izquierda -->
+    <img src="images/logo en negro.jpg" class="img-top-left" alt="Logo">
+    <!-- Texto H1 en la esquina superior derecha -->
+    <h1 class="title-top-right">Órdenes Listas</h1>
 
-        <!-- Entrada para el folio (solo números) -->
-        <label for="folio">Folio:</label>
+    <div class="container">
+        <!-- Entrada para el folio -->
+        <label for="folio">Folio</label>
         <input type="number" id="folio" name="folio" placeholder="Ingresa el folio" required>
 
         <!-- Entrada para el cliente -->
@@ -22,8 +25,37 @@
         <input type="text" id="cliente" name="cliente" placeholder="Ingresa el nombre del cliente" required>
 
         <!-- Botón de envío -->
-        <button type="submit">Enviar</button>
+        <button onclick="agregarOrden()">Agregar Orden</button>
+
+        <button onclick="window.location.href='ordenes.html'">Ver Lista de Órdenes</button>
     </div>
+
+    <!-- Imagen en la esquina inferior derecha -->
+    <img src="images/Pizza peperoni 1-4.png" class="img-bottom-right" alt="Pizza">
+
+    <script>
+        const ordenes = [];
+
+        function agregarOrden() {
+            const folio = document.getElementById('folio').value;
+            const cliente = document.getElementById('cliente').value;
+
+            if (folio && cliente) {
+                ordenes.push({
+                    folio,
+                    cliente
+                });
+                alert('Orden agregada correctamente');
+
+                document.getElementById('folio').value = '';
+                document.getElementById('cliente').value = '';
+            }
+        }
+
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('ordenes', JSON.stringify(ordenes));
+        });
+    </script>
 
 </body>
 
