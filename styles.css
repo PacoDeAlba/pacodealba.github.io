@@ -46,16 +46,16 @@ input {
 button {
     padding: 0.7rem 10rem;
     font-size: 1.5rem;
-    background-color: #7e0303fa;
+    background-color: #740909fa;
     color: #fff;
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 10s ease;
 }
 
 button:hover {
-    background-color: #7e0303fa;
+    background-color: #be5b5bfa;
 }
 
 
@@ -70,9 +70,9 @@ button:hover {
 
 .order-item {
     padding: 0.8rem;
-    background-color: #b10e0e;
+    background-color: #b83337;
     margin-bottom: 0.5rem;
-    border: 1px solid #fdfdfd;
+    border: 3px solid #ffffff;
     border-radius: 5px;
     color: #ffffff;
     animation: fadeIn 1s ease;
