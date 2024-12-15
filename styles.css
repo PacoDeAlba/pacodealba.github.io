@@ -4,7 +4,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 2rem;
-    background-color: #db1218;
+    background-color: #000;
     color: #fff;
 }
 
@@ -55,7 +55,7 @@ button {
 }
 
 button:hover {
-    background-color: #000000;
+    background-color: #7e0303fa;
 }
 
 
@@ -70,7 +70,7 @@ button:hover {
 
 .order-item {
     padding: 0.8rem;
-    background-color: #631e1eb6;
+    background-color: #b10e0e;
     margin-bottom: 0.5rem;
     border: 1px solid #fdfdfd;
     border-radius: 5px;
