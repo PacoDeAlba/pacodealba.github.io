@@ -113,6 +113,12 @@ button:hover {
     color: #f11313;
 }
 
+h4 {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 h5 {
     margin-top: 2rem;
     text-align: center;
