@@ -4,7 +4,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 2rem;
-    background-color: #000000;
+    background-color: #db1218;
     background-image: url(images/Fondo\ hondulado.png);
     /* Ruta relativa para la imagen local */
     background-size: cover;
